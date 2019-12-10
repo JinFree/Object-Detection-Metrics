@@ -121,6 +121,12 @@ def getBoundingBoxes(directory,
                 continue
             splitLine = line.split(" ")
             if isGT:
+                if len(splitLine) is 6:
+                    splitLine[0] = splitLine[0] + splitLine[1]
+                    splitLine[1] = splitLine[2]
+                    splitLine[2] = splitLine[3]
+                    splitLine[3] = splitLine[4]
+                    splitLine[4] = splitLine[5]
                 # idClass = int(splitLine[0]) #class
                 idClass = (splitLine[0])  # class
                 x = float(splitLine[1])
@@ -139,6 +145,13 @@ def getBoundingBoxes(directory,
                     BBType.GroundTruth,
                     format=bbFormat)
             else:
+                if len(splitLine) is 7:
+                    splitLine[0] = splitLine[0] + splitLine[1]
+                    splitLine[1] = splitLine[2]
+                    splitLine[2] = splitLine[3]
+                    splitLine[3] = splitLine[4]
+                    splitLine[4] = splitLine[5]
+                    splitLine[5] = splitLine[6]
                 # idClass = int(splitLine[0]) #class
                 idClass = (splitLine[0])  # class
                 confidence = float(splitLine[1])
